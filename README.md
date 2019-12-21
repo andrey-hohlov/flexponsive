@@ -48,13 +48,13 @@ Install via npm:
 ### Generate with default params
 
 ```scss
-@import "~flexponsive"; // or @import "~flexponsive/src/flexponsive";
+@import "~flexponsive-auto"; // or @import "~flexponsive/src/flexponsive";
 ```
 
 ### Modify variables
 
 ```scss
-@import "~flexponsive/src/flexponsive-mixins";
+@import "~flexponsive"; // or @import "~flexponsive/src/flexponsive";
 
 $flexponsive-breakpoints: (
   xs: 0,
@@ -98,7 +98,7 @@ $flexponsive-row-class: row !default;
 ### Generate own grids
 
 ```scss
-@import "~flexponsive/src/flexponsive-mixins";
+@import "~flexponsive"; // or @import "~flexponsive/src/flexponsive";
 
 $breakpoints: (
   xs: 0,
@@ -191,3 +191,8 @@ $container-max-widths: (
 ```_self-middle```
 
 ```_filled```
+
+
+## Breakpoints utilities
+
+> Documentation in progress
