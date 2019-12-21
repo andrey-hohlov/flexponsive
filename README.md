@@ -4,7 +4,7 @@ Flex-based vertical and horizontal grid and media-breakpoints utilities in SASS-
 
 > Disclaimer: If you need just ready to use css grid and Bootstrap (or Flexgrid) fits your requirements - use it. Flexponsive doesn't provide a fundamentally different technical solution. Just another approach in naming and generation.  
 
-**Demo**
+**[Demo](https://andrey-hohlov.github.io/flexponsive/)**
 
 ## Conception
 
