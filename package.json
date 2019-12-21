@@ -1,0 +1,53 @@
+{
+  "name": "flexponsive",
+  "version": "1.0.0",
+  "description": "Flex-based vertical and horizontal grid and media-breakpoints utilities in SASS-mixins",
+  "keywords": [
+    "css",
+    "grid",
+    "sass",
+    "scss",
+    "mediaqueries",
+    "flexbox"
+  ],
+  "main": "src/flexponsive.scss",
+  "scripts": {
+    "dev": "node_modules/.bin/node-sass src/flexponsive.scss docs/flexponsive.css -w src/*.scss",
+    "dist": "node_modules/.bin/node-sass src/flexponsive.scss dist/flexponsive.css && node_modules/.bin/postcss dist/flexponsive.css -r",
+    "docs": "cp -R dist/*.* docs",
+    "lint": "node_modules/.bin/stylelint src/*.scss --fix",
+    "build": "npm run lint && npm run dist && npm run docs"
+  },
+  "author": "Andrey Khokhlov <andrey@hohlov.pro>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:andrey-hohlov/flexponsive.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andrey-hohlov/flexponsive/issues"
+  },
+  "homepage": "https://github.com/andrey-hohlov/flexponsive",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^9.7.3",
+    "cssnano": "^4.1.10",
+    "node-sass": "^4.13.0",
+    "postcss-cli": "^6.1.3",
+    "postcss-discard-duplicates": "^4.0.2",
+    "stylelint": "^12.0.0",
+    "stylelint-config-recommended-scss": "^4.1.0",
+    "stylelint-order": "^3.1.1",
+    "stylelint-scss": "^3.13.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/*.scss": [
+      "npm run build",
+      "git add"
+    ]
+  }
+}

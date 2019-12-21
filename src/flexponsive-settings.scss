@@ -1,0 +1,35 @@
+$flexponsive-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;
+
+$flexponsive-columns: 12 !default;
+
+$flexponsive-gutters: (
+  xs: 30px,
+  sm: 30px,
+  md: 30px,
+  lg: 30px,
+  xl: 30px,
+) !default;
+
+$flexponsive-container-max-widths: (
+  xs: 100%,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+) !default;
+
+$flexponsive-container-class: container !default;
+
+$flexponsive-cols-class: cols !default;
+
+$flexponsive-col-class: col !default;
+
+$flexponsive-rows-class: rows !default;
+
+$flexponsive-row-class: row !default;

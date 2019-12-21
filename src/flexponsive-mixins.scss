@@ -1,0 +1,392 @@
+@function flexponsive-breakpoint-next($name, $breakpoints) {
+  $breakpoint-names: map-keys($breakpoints);
+  $n: index($breakpoint-names, $name);
+
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+@function flexponsive-breakpoint-min($name, $breakpoints) {
+  $min: map-get($breakpoints, $name);
+
+  @return if($min != 0, $min, null);
+}
+
+@function flexponsive-breakpoint-max($name, $breakpoints) {
+  $next: flexponsive-breakpoint-next($name, $breakpoints);
+
+  @return if($next, flexponsive-breakpoint-min($next, $breakpoints) - 0.02px, null);
+}
+
+@function flexponsive-breakpoint-infix($name, $breakpoints, $before: "", $after: "") {
+  @return if(flexponsive-breakpoint-min($name, $breakpoints) == null, "", "#{$before}#{$name}#{$after}");
+}
+
+@mixin flexponsive-breakpoint-up($name, $breakpoints: $flexponsive-breakpoints) {
+  $min: flexponsive-breakpoint-min($name, $breakpoints);
+
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  }
+
+  @else {
+    @content;
+  }
+}
+
+@mixin flexponsive-breakpoint-down($name, $breakpoints: $flexponsive-breakpoints) {
+  $max: flexponsive-breakpoint-max($name, $breakpoints);
+
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  }
+
+  @else {
+    @content;
+  }
+}
+
+@mixin flexponsive-breakpoint-between($lower, $upper, $breakpoints: $flexponsive-breakpoints) {
+  $min: flexponsive-breakpoint-min($lower, $breakpoints);
+  $max: flexponsive-breakpoint-max($upper, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  }
+
+  @else if $max == null {
+    @include flexponsive-breakpoint-up($lower, $breakpoints) {
+      @content;
+    }
+  }
+
+  @else if $min == null {
+    @include flexponsive-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+@mixin flexponsive-breakpoint-only($name, $breakpoints: $flexponsive-breakpoints) {
+  $min: flexponsive-breakpoint-min($name, $breakpoints);
+  $max: flexponsive-breakpoint-max($name, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  }
+
+  @else if $max == null {
+    @include flexponsive-breakpoint-up($name, $breakpoints) {
+      @content;
+    }
+  }
+
+  @else if $min == null {
+    @include flexponsive-breakpoint-down($name, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+@mixin flexponsive-make-gutters($gutters: $flexponsive-gutters) {
+  @each $breakpoint in map-keys($gutters) {
+    @include flexponsive-breakpoint-up($breakpoint) {
+      $gutter: map-get($gutters, $breakpoint);
+      padding-right: ($gutter / 2);
+      padding-left: ($gutter / 2);
+    }
+  }
+}
+
+@mixin flexponsive-make-container($gutters: $flexponsive-gutters) {
+  @include flexponsive-make-gutters($gutters);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin flexponsive-make-container-max-widths($max-widths: $flexponsive-container-max-widths, $breakpoints: $flexponsive-breakpoints) {
+  @each $breakpoint, $max-width in $max-widths {
+    @include flexponsive-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $max-width;
+    }
+  }
+}
+
+@mixin flexponsive-make-col($gutters: $flexponsive-gutters) {
+  @include flexponsive-make-gutters($gutters);
+  width: 100%;
+  min-height: 1px;
+  min-width: 0;
+}
+
+@mixin flexponsive-make-col-width($size, $columns: $flexponsive-columns) {
+  flex: 0 0 percentage($size / $columns);
+  max-width: percentage($size / $columns);
+}
+
+@mixin flexponsive-make-col-offset($size, $columns: $flexponsive-columns) {
+  $num: $size / $columns;
+  margin-left: if($num == 0, 0, percentage($num));
+}
+
+@mixin flexponsive-make-col-push($size, $columns: $flexponsive-columns) {
+  $num: $size / $columns;
+  margin-right: if($num == 0, 0, percentage($num));
+}
+
+@mixin flexponsive-make-cols($breakpoints: $flexponsive-breakpoints, $gutters: $flexponsive-gutters) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @each $breakpoint in map-keys($gutters) {
+    @include flexponsive-breakpoint-up($breakpoint) {
+      $gutter: map-get($gutters, $breakpoint);
+      margin-right: ($gutter / -2);
+      margin-left: ($gutter / -2);
+    }
+  }
+}
+
+@mixin flexponsive-make-rows($breakpoints: $flexponsive-breakpoints, $gutters: $flexponsive-gutters) {
+  &::after {
+    content: "";
+    display: table;
+    width: 100%;
+  }
+
+  @each $breakpoint in map-keys($breakpoints) {
+    @include flexponsive-breakpoint-up($breakpoint) {
+      $gutter: map-get($gutters, $breakpoint);
+      margin-bottom: -$gutter;
+    }
+  }
+}
+
+@mixin flexponsive-make-row($breakpoints: $flexponsive-breakpoints, $gutters: $flexponsive-gutters) {
+  @each $breakpoint in map-keys($breakpoints) {
+    @include flexponsive-breakpoint-up($breakpoint) {
+      $gutter: map-get($gutters, $breakpoint);
+      margin-bottom: $gutter;
+    }
+  }
+}
+
+@mixin flexponsive-generate-container-classes(
+  $breakpoints: $flexponsive-breakpoints,
+  $gutters: $flexponsive-gutters,
+  $container-max-widths: $flexponsive-container-max-widths,
+  $container-class: $flexponsive-container-class
+) {
+  .#{$container-class} {
+    @include flexponsive-make-container($gutters);
+    @include flexponsive-make-container-max-widths($container-max-widths, $breakpoints);
+
+    @each $breakpoint in $breakpoints {
+      @include flexponsive-breakpoint-up($breakpoint, $breakpoints) {
+        &_fluid {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@mixin flexponsive-generate-cols-classes(
+  $breakpoints: $flexponsive-breakpoints,
+  $gutters: $flexponsive-gutters,
+  $cols-class: $flexponsive-cols-class
+) {
+  .#{$cols-class} {
+    @include flexponsive-make-cols($breakpoints, $gutters);
+
+    @each $breakpoint in map-keys($breakpoints) {
+      $infix-: flexponsive-breakpoint-infix($breakpoint, $breakpoints, "", "-");
+      $gutter: map-get($gutters, $breakpoint);
+
+      @include flexponsive-breakpoint-up($breakpoint) {
+        &_#{$infix-}reverse {
+          flex-direction: row-reverse !important;
+        }
+
+        &_#{$infix-}nowrap {
+          flex-wrap: nowrap !important;
+        }
+
+        &_#{$infix-}wrap {
+          flex-wrap: wrap !important;
+        }
+
+        &_#{$infix-}start {
+          justify-content: flex-start;
+        }
+
+        &_#{$infix-}center {
+          justify-content: center;
+        }
+
+        &_#{$infix-}end {
+          justify-content: flex-end;
+        }
+
+        &_#{$infix-}between {
+          justify-content: space-between;
+        }
+
+        &_#{$infix-}around {
+          justify-content: space-around;
+        }
+
+        &_#{$infix-}top {
+          align-items: flex-start;
+        }
+
+        &_#{$infix-}middle {
+          align-items: center;
+        }
+
+        &_#{$infix-}bottom {
+          align-items: flex-end;
+        }
+
+        &_#{$infix-}gapless {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+
+          > * {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin flexponsive-generate-col-classes(
+  $breakpoints: $flexponsive-breakpoints,
+  $gutters: $flexponsive-gutters,
+  $columns: $flexponsive-columns,
+  $col-class: $flexponsive-col-class
+) {
+  .#{$col-class} {
+    @include flexponsive-make-col($gutters);
+
+    @each $breakpoint in map-keys($breakpoints) {
+      $infix-: flexponsive-breakpoint-infix($breakpoint, $breakpoints, "", "-");
+      $_infix: flexponsive-breakpoint-infix($breakpoint, $breakpoints, "_", "");
+
+      @include flexponsive-breakpoint-up($breakpoint, $breakpoints) {
+        &#{$_infix} {
+          flex-basis: 0;
+          flex-grow: 1;
+          max-width: 100%;
+        }
+
+        &_#{$infix-}auto {
+          flex: 0 0 auto;
+          width: auto;
+          max-width: 100%;
+        }
+
+        &_#{$infix-}self-top {
+          align-self: flex-start;
+        }
+
+        &_#{$infix-}self-middle {
+          align-self: center;
+        }
+
+        &_#{$infix-}self-bottom {
+          align-self: flex-end;
+        }
+
+        &_#{$infix-}filled {
+          display: flex;
+          flex-direction: column;
+
+          > * {
+            flex: 1 0 auto;
+          }
+        }
+
+        &_#{$infix-}first {
+          order: -1;
+        }
+
+        &_#{$infix-}last {
+          order: $columns + 1;
+        }
+
+        @for $i from 1 through $columns {
+          &_#{$infix-}#{$i} {
+            @include flexponsive-make-col-width($i, $columns);
+          }
+        }
+
+        @for $i from 0 through $columns {
+          &_#{$infix-}order-#{$i} {
+            order: $i;
+          }
+        }
+
+        @for $i from 0 through ($columns - 1) {
+          @if not ($infix- == "" and $i == 0) {
+            &_#{$infix-}offset-#{$i} {
+              @include flexponsive-make-col-offset($i, $columns);
+            }
+
+            &_#{$infix-}push-#{$i} {
+              @include flexponsive-make-col-push($i, $columns);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin flexponsive-generate-rows-classes(
+  $breakpoints: $flexponsive-breakpoints,
+  $gutters: $flexponsive-gutters,
+  $rows-class: $flexponsive-rows-class
+) {
+  .#{$rows-class} {
+    @include flexponsive-make-rows($breakpoints, $gutters);
+  }
+}
+
+@mixin flexponsive-generate-row-classes(
+  $breakpoints: $flexponsive-breakpoints,
+  $gutters: $flexponsive-gutters,
+  $row-class: $flexponsive-row-class
+) {
+  .#{$row-class} {
+    @include flexponsive-make-row($breakpoints, $gutters);
+  }
+}
+
+@mixin flexponsive-generate(
+  $breakpoints: $flexponsive-breakpoints,
+  $gutters: $flexponsive-gutters,
+  $columns: $flexponsive-columns,
+  $cols-class: $flexponsive-cols-class,
+  $col-class: $flexponsive-col-class,
+  $rows-class: $flexponsive-rows-class,
+  $row-class: $flexponsive-row-class,
+  $container-max-widths: $flexponsive-container-max-widths,
+  $container-class: $flexponsive-container-class
+) {
+  @include flexponsive-generate-container-classes($breakpoints, $gutters, $container-max-widths, $container-class);
+  @include flexponsive-generate-cols-classes($breakpoints, $gutters, $cols-class);
+  @include flexponsive-generate-col-classes($breakpoints, $gutters, $columns, $col-class);
+  @include flexponsive-generate-rows-classes($breakpoints, $gutters, $rows-class);
+  @include flexponsive-generate-row-classes($breakpoints, $gutters, $row-class);
+}

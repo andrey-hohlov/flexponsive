@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexponsive</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="flexponsive.css">
+</head>
+<body>
+  <div class="hero">
+    <div class="container">
+      <h1 class="hero__title">
+        Flexponsive
+      </h1>
+      <h2 class="hero__subtitle">
+        Flex-based vertical and horizontal grid and media-breakpoints utilities in SASS-mixins
+      </h2>
+      <div class="hero__description">
+        Generate as many grids with different configurations as you need
+      </div>
+      <div class="hero__links">
+        <a href="https://github.com/andrey-hohlov/flexponsive" class="github-link">
+          <svg viewBox="0 0 24 24" class="github-link__icon">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+          <span class="github-link__label">Documentation</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="showcase">
+    <div class="container">
+      <div class="cols rows">
+        <div class="col col_6 col_sm-4 row">
+          <div class="filler"></div>
+        </div>
+        <div class="col col_6 col_md-8 row">
+          <div class="filler"></div>
+        </div>
+        <div class="col col_6 col_md-3 row">
+          <div class="filler"></div>
+        </div>
+        <div class="col col_6 col_md-3 row">
+          <div class="filler"></div>
+        </div>
+        <div class="col col_6 col_md-3 row">
+          <div class="filler"></div>
+        </div>
+        <div class="col col_6 col_md-3 row">
+          <div class="filler"></div>
+        </div>
+        <div class="col col_6 col_md-6 row">
+          <div class="filler"></div>
+        </div>
+        <div class="col col_6 col_md-6 row">
+          <div class="filler"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="showcase">
+    <div class="container">
+      <div class="showcase__title">Horizontal alignment</div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_start</div>
+        <div class="showcase__grid">
+          <div class="cols cols_start">
+            <div class="col col_3">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_3">
+              <div class="filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_center</div>
+        <div class="showcase__grid">
+          <div class="cols cols_center">
+            <div class="col col_3">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_3">
+              <div class="filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_end</div>
+        <div class="showcase__grid">
+          <div class="cols cols_end">
+            <div class="col col_3">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_3">
+              <div class="filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_between</div>
+        <div class="showcase__grid">
+          <div class="cols cols_between">
+            <div class="col col_3">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_3">
+              <div class="filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_around</div>
+        <div class="showcase__grid">
+          <div class="cols cols_around">
+            <div class="col col_3">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_3">
+              <div class="filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="showcase">
+    <div class="container">
+      <div class="showcase__title">Vertical alignment</div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_top</div>
+        <div class="showcase__grid">
+          <div class="cols cols_top">
+            <div class="col col_4">
+              <div class="filler filler_x2"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_middle</div>
+        <div class="showcase__grid">
+          <div class="cols cols_middle">
+            <div class="col col_4">
+              <div class="filler filler_x2"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_bottom</div>
+        <div class="showcase__grid">
+          <div class="cols cols_bottom">
+            <div class="col col_4">
+              <div class="filler filler_x2"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="showcase">
+    <div class="container">
+      <div class="showcase__title">Order</div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_reverse</div>
+        <div class="showcase__grid">
+          <div class="cols cols_reverse">
+            <div class="col col_3">
+              <div class="filler">1</div>
+            </div>
+            <div class="col col_3">
+              <div class="filler">2</div>
+            </div>
+            <div class="col col_3">
+              <div class="filler">3</div>
+            </div>
+            <div class="col col_3">
+              <div class="filler">4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="showcase">
+    <div class="container">
+      <div class="showcase__title">Gaps</div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_gapless</div>
+        <div class="showcase__grid">
+          <div class="cols cols_gapless">
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="showcase">
+    <div class="container">
+      <div class="showcase__title">Wrap control</div>
+      <div class="showcase__description"></div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_nowrap</div>
+        <div class="showcase__grid" style="width: 75%;">
+          <div class="cols cols_nowrap">
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_wrap</div>
+        <div class="showcase__grid" style="width: 75%;">
+          <div class="cols cols_wrap rows">
+            <div class="col col_4 row">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4 row">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4 row">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4 row">
+              <div class="filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="showcase">
+    <div class="container">
+      <div class="showcase__title">Column wide</div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_auto</div>
+        <div class="showcase__grid">
+          <div class="cols">
+            <div class="col">
+              <div class="filler"></div>
+            </div>
+            <div class="col">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_auto">
+              <div class="filler">auto (content based)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="showcase">
+    <div class="container">
+      <div class="showcase__title">Column offset</div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_offset-*</div>
+        <div class="showcase__grid">
+          <div class="cols rows">
+            <div class="col col_11 col_offset-1 row">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_10 col_offset-2 row">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_9 col_offset-3 row">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_8 col_offset-4 row">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_7 col_offset-5 row">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_6 col_offset-6 row">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_5 col_offset-7 row">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4 col_offset-8 row">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_3 col_offset-9 row">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_2 col_offset-10 row">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_1 col_offset-11 row">
+              <div class="filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="showcase">
+    <div class="container">
+      <div class="showcase__title">Column push</div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_push-*</div>
+        <div class="showcase__grid">
+          <div class="rows">
+            <div class="cols row">
+              <div class="col col_1 col_push-1">
+                <div class="filler"></div>
+              </div>
+              <div class="col col_1">
+                <div class="filler"></div>
+              </div>
+            </div>
+            <div class="cols row">
+              <div class="col col_1 col_push-2">
+                <div class="filler"></div>
+              </div>
+              <div class="col col_1">
+                <div class="filler"></div>
+              </div>
+            </div>
+            <div class="cols row">
+              <div class="col col_1 col_push-3">
+                <div class="filler"></div>
+              </div>
+              <div class="col col_1">
+                <div class="filler"></div>
+              </div>
+            </div>
+            <div class="cols row">
+              <div class="col col_1 col_push-4">
+                <div class="filler"></div>
+              </div>
+              <div class="col col_1">
+                <div class="filler"></div>
+              </div>
+            </div>
+            <div class="cols row">
+              <div class="col col_1 col_push-5">
+                <div class="filler"></div>
+              </div>
+              <div class="col col_1">
+                <div class="filler"></div>
+              </div>
+            </div>
+            <div class="cols row">
+              <div class="col col_1 col_push-6">
+                <div class="filler"></div>
+              </div>
+              <div class="col col_1">
+                <div class="filler"></div>
+              </div>
+            </div>
+            <div class="cols row">
+              <div class="col col_1 col_push-7">
+                <div class="filler"></div>
+              </div>
+              <div class="col col_1">
+                <div class="filler"></div>
+              </div>
+            </div>
+            <div class="cols row">
+              <div class="col col_1 col_push-8">
+                <div class="filler"></div>
+              </div>
+              <div class="col col_1">
+                <div class="filler"></div>
+              </div>
+            </div>
+            <div class="cols row">
+              <div class="col col_1 col_push-9">
+                <div class="filler"></div>
+              </div>
+              <div class="col col_1">
+                <div class="filler"></div>
+              </div>
+            </div>
+            <div class="cols row">
+              <div class="col col_1 col_push-10">
+                <div class="filler"></div>
+              </div>
+              <div class="col col_1">
+                <div class="filler"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="showcase">
+    <div class="container">
+      <div class="showcase__title">Column self order</div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_order-*</div>
+        <div class="showcase__grid">
+          <div class="cols">
+            <div class="col col_3 col_order-0">
+              <div class="filler">1</div>
+            </div>
+            <div class="col col_3 col_order-3">
+              <div class="filler">2</div>
+            </div>
+            <div class="col col_3 col_order-1">
+              <div class="filler">3</div>
+            </div>
+            <div class="col col_3 col_order-4">
+              <div class="filler">4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_first</div>
+        <div class="showcase__grid">
+          <div class="cols">
+            <div class="col col_3">
+              <div class="filler">1</div>
+            </div>
+            <div class="col col_3">
+              <div class="filler">2</div>
+            </div>
+            <div class="col col_3">
+              <div class="filler">3</div>
+            </div>
+            <div class="col col_3 col_first">
+              <div class="filler filler_accent">4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_last</div>
+        <div class="showcase__grid">
+          <div class="cols">
+            <div class="col col_3 col_last">
+              <div class="filler filler_accent">1</div>
+            </div>
+            <div class="col col_3">
+              <div class="filler">2</div>
+            </div>
+            <div class="col col_3">
+              <div class="filler">3</div>
+            </div>
+            <div class="col col_3">
+              <div class="filler">4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="showcase">
+    <div class="container">
+      <div class="showcase__title">Column self alignment</div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_self-top</div>
+        <div class="showcase__grid">
+          <div class="cols cols_middle">
+            <div class="col col_4">
+              <div class="filler filler_x2"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4 col_self-top">
+              <div class="filler filler_accent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_self-bottom</div>
+        <div class="showcase__grid">
+          <div class="cols cols_middle">
+            <div class="col col_4">
+              <div class="filler filler_x2"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4 col_self-bottom">
+              <div class="filler filler_accent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_self-middle</div>
+        <div class="showcase__grid">
+          <div class="cols">
+            <div class="col col_4">
+              <div class="filler filler_x2"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+            <div class="col col_4 col_self-middle">
+              <div class="filler filler_accent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="showcase">
+    <div class="container">
+      <div class="showcase__title">Make children not less than 100% column height</div>
+      <div class="showcase__row">
+        <div class="showcase__row-title">_filled</div>
+        <div class="showcase__grid">
+          <div class="cols">
+            <div class="col col_4">
+              <div class="filler filler_x2"></div>
+            </div>
+            <div class="col col_4 col_filled">
+              <div class="filler filler_accent"></div>
+            </div>
+            <div class="col col_4">
+              <div class="filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
