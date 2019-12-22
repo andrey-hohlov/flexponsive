@@ -12,8 +12,8 @@
   ],
   "main": "src/flexponsive.scss",
   "scripts": {
-    "dev": "node_modules/.bin/node-sass src/flexponsive.scss docs/flexponsive.css -w src/*.scss",
-    "dist": "node_modules/.bin/node-sass src/flexponsive.scss dist/flexponsive.css && node_modules/.bin/postcss dist/flexponsive.css -r",
+    "dev": "node_modules/.bin/node-sass src/flexponsive-auto.scss docs/flexponsive.css -w src/*.scss",
+    "dist": "node_modules/.bin/node-sass src/flexponsive-auto.scss dist/flexponsive.css && node_modules/.bin/postcss dist/flexponsive.css -r",
     "docs": "cp -R dist/*.* docs",
     "lint": "node_modules/.bin/stylelint src/*.scss --fix",
     "build": "npm run lint && npm run dist && npm run docs"
