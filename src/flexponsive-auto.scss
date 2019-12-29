@@ -1,3 +1,60 @@
 @import "flexponsive";
 
 @include flexponsive-generate();
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 560px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;
+
+$grid-columns: 12 !default;
+
+$grid-gutter-widths: (
+  xs: 32px,
+  sm: 32px,
+  md: 32px,
+  lg: 32px,
+  xl: 32px,
+) !default;
+
+$medium-grid-gutter-widths: (
+  xs: 24px,
+  sm: 24px,
+  md: 24px,
+  lg: 24px,
+  xl: 24px,
+) !default;
+
+$small-grid-gutter-widths: (
+  xs: 16px,
+  sm: 16px,
+  md: 16px,
+  lg: 16px,
+  xl: 16px,
+) !default;
+
+$tiny-grid-gutter-widths: (
+  xs: 8px,
+  sm: 8px,
+  md: 8px,
+  lg: 8px,
+  xl: 8px,
+) !default;
+
+@include flexponsive-generate-cols-classes($grid-breakpoints, $medium-grid-gutter-widths, medium-cols);
+@include flexponsive-generate-col-classes($grid-breakpoints, $medium-grid-gutter-widths, $grid-columns, medium-col)
+@include flexponsive-generate-rows-classes($grid-breakpoints, $medium-grid-gutter-widths, medium-rows)
+@include flexponsive-generate-row-classes($grid-breakpoints, $medium-grid-gutter-widths, medium-row)
+
+@include flexponsive-generate-cols-classes($grid-breakpoints, $small-grid-gutter-widths, small-cols);
+@include flexponsive-generate-col-classes($grid-breakpoints, $small-grid-gutter-widths, $grid-columns, small-col)
+@include flexponsive-generate-rows-classes($grid-breakpoints, $small-grid-gutter-widths, small-rows)
+@include flexponsive-generate-row-classes($grid-breakpoints, $small-grid-gutter-widths, small-row)
+
+@include flexponsive-generate-cols-classes($grid-breakpoints, $tiny-grid-gutter-widths, tiny-cols);
+@include flexponsive-generate-col-classes($grid-breakpoints, $tiny-grid-gutter-widths, $grid-columns, tiny-col)
+@include flexponsive-generate-rows-classes($grid-breakpoints, $tiny-grid-gutter-widths, tiny-rows)
+@include flexponsive-generate-row-classes($grid-breakpoints, $tiny-grid-gutter-widths, tiny-row)
