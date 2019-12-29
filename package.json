@@ -1,6 +1,6 @@
 {
   "name": "flexponsive",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Flex-based vertical and horizontal grid and media-breakpoints utilities in SASS-mixins",
   "keywords": [
     "css",
